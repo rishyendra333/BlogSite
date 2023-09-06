@@ -1,83 +1,76 @@
-// import React, { useEffect } from 'react';
-// import './App.css'; // You can include your global styles here
-
-// function Header() {
-//   return (
-//     <header>
-//       <h1>Welcome to the Blog</h1>
-//     </header>
-//   );
-// }
-
-// function NewBlogButton() {
-//   useEffect(() => {
-//     const script = document.createElement('script');
-//     script.src = '../script.js';
-//     script.async = true;
-//     document.body.appendChild(script);
-
-//     return () => {
-//       document.body.removeChild(script);
-//     };
-//   }, []);
-
-//   return (
-//     <div>
-//       <p>If you want to make a new post, click the button below!</p>
-//       <button id="newBlog">New Blog!</button>
-//     </div>
-//   );
-// }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Header />
-//       <NewBlogButton />
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React, { useEffect } from 'react';
-import './App.css';
+import './App.css'; // You can include your global styles here
 import {
-  BrowserRouter,
-  Link,
-  Routes,
+  createBrowserRouter,
+  RouterProvider,
   Route,
-  Navigate,
+  Outlet,
 } from "react-router-dom";
+import Home from "./pages/Home"
+import AddBlog from "./pages/AddBlog"
+import Article from "./pages/Article"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+//import "./styles.scss"
+import "./styles2.css"
 
-//pages
-import Home from "./components/Home";
-import AddBlog from "./components/AddBlog";
+const Layout = () => {
+  return (
+    <>
+    <Navbar />
+    <Outlet />
+    <Footer />
+    </>
+  );
+};
+
+const router = createBrowserRouter ([
+  {
+    path: "/",
+    element: <Layout />,
+    children:[
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/add-blog",
+        element: <AddBlog />
+      },
+      {
+        path: "/post/:id",
+        element: <Article />
+      },
+    ]
+  },
+  {
+    path: "/add-blog",
+    element: <AddBlog />,
+  },
+  {
+    path: "/post/:id",
+    element: <Article />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+]);
 
 function App() {
   return (
-    <>
-      {/* This is the alias of BrowserRouter i.e. Router */}
-      <BrowserRouter>
-        <Routes>
-          {/* This route is for home component 
-          with exact path "/", in component props 
-          we passes the imported component*/}
-          <Route exact path="/" component={Home} />
-            
-          {/* This route is for about component 
-          with exact path "/about", in component 
-          props we passes the imported component*/}
-          <Route path="/AddBlog" component={AddBlog} />
-            
-          {/* If any route mismatches the upper 
-          route endpoints then, redirect triggers 
-          and redirects app to home component with to="/" */}
-          <Navigate to="/" />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <div className="app">
+      <div className="container1">
+        <RouterProvider router={router}/>
+      </div>
+    </div>
   );
 }
-  
+
 export default App;

@@ -1,0 +1,114 @@
+/* LOGIN/REGISTER */
+
+h1{
+    font-size: 20px;
+    color: teal;
+    margin-bottom: 20px;
+}
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #b9e7e7;
+}
+
+.auth .auth-form{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    background-color: white;
+    /* width: 200px; */
+    width: 20%;
+    gap: 20px;
+}
+
+.auth .auth-form input{
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.auth .auth-form button{
+    padding: 10px;
+    border: none;
+    background-color: teal;
+    cursor: pointer;
+    color: white;
+}
+
+.auth .auth-form span{
+    font-size: 12px;
+    text-align: center;
+}
+
+.auth .auth-form p{
+    font-style: 10px;
+    color: red;
+    text-align: center;
+}
+
+/* NAVBAR */
+
+.navbar .container {
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .container .logo img{
+    width: 120px;
+}
+
+.navbar .container .links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar .container .links span a{
+    font-size: 16px;
+    font-weight: 300;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navbar span a{
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    border: 1px solid #0073e6;
+    color: #0073e6;
+}
+
+.navbar span:hover a{
+    color: #800080;
+    background-color: #b482b4;
+    border: 1px solid #800080;
+}
+
+/* APP */
+
+.app {
+    display: flex;
+    justify-content: center;
+}
+
+.app .container1{
+    width: 1024px;
+}
+
+/* LOGO */
+
+
+.app .container1 .link {
+    text-decoration: none;
+    color: inherit;
+}
